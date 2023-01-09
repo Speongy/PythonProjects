@@ -1,3 +1,6 @@
+#I added too many comments into my first port scan so here's one without any giant comments
+#I wrote main.py like that bc I need as much explanation as possible or else I forget everything
+
 '''
 **PORT SCANNING IS ILLEGAL IF USED MALICIOUSLY**
 Don't scan hosts that you don't have permission to
@@ -7,11 +10,11 @@ If you use it for something bad, it's your own fault.
 **I DO NOT ADVISE IT**
 '''
 
-
-
 import socket
+import threading
+from queue import Queue
 
-target = 'mf uhhhh'    #LOCALHOST(127.0.0.1)
+target = 'mf uhhhh'    #LOCALHOST(127.0.0.1) or any host
 
 def port_scan(port):    #pass a port
     try:
@@ -21,38 +24,6 @@ def port_scan(port):    #pass a port
     except:
         return False
     
-'''AF_INET tells us if internet socket and not UNIX socket
-SOCK_STREAM lets us use TCP and not UDP'''
-
-
-'''
-not multithreaded slower version
-
-for port in range(1, 1024):
-    result = port_scan(port)
-    if result:
-        print("Port {} is open.".format(port))
-    else:
-        print("Port {} is closed".format(port))
-
-this version checks ports one at a time. super lame and not poggers (help me)
-Let's multithread it! >:D
-and also use queues
-'''
-
-import threading
-from queue import Queue
-
-'''
-queue is a collection, sequence, or list where everytime we get an element, 
-it's no longer in the collection, seq, or list
-
-In this case, we're queueing port #'s 1 to 1024
-
-The queue shifts when we get a new one or something like that idk man
-
-'''
-
 queue = Queue()
 open_port = []
 
@@ -84,8 +55,3 @@ for thread in thread_list:
     thread.join()
 
 print("Open ports are: ", open_port)
-
-'''
-So, we need an empty thread list for the thread.join()
-thread.join() waits until every thread is finished before if goes to the print statement
-'''
