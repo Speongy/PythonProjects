@@ -8,6 +8,3 @@ Scan your own hostst or have documented permission
 I do not take any responsibility for what you do. This is for educational purposes only.
 If you use it for something bad, it's your own fault.
 **I DO NOT ADVISE IT**
-
-Video can be found here:
-https://www.youtube.com/watch?v=FGdiSJakIS4&t=823s
