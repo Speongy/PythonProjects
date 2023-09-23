@@ -1,6 +1,6 @@
 '''
 For this project we will be writing a python script to login into 
-an email account and send mail using SMPT
+an email account and send mail using SMTP
 '''
 
 import smtplib
